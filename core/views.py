@@ -47,9 +47,16 @@ def index(request):
         tooltips = [
         ("candidate name", "@candidates_list"),
         ("sentiment value", "@sentiment_list{-0.000}"),
-    ],
-    mode = 'vline'
+        ],
+        mode = 'vline'
     ) 
+
+    if request.device.is_small:
+        pass
+    else:
+        pass
+
+
 
     plot = figure(x_range=candidates_list, y_range=(-0.5, .5),
                   x_axis_label='Candidates', y_axis_label='Sentiment',
