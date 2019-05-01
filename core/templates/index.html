@@ -2,21 +2,22 @@
 {% load staticfiles %}
 
 {% block content %}
-<div class="index-header">
-    <div class="pl4 pr5">
-        <div class="body-headers mt3">
+<body>
+<div class="index-header projectmeth" id="projectindex">
+    <div class="pl3 pr3 mh2    ">
+        <div class="body-headersindex mt3">
             <strong>A modern opinion poll for modern politics.</strong>
         </div>
         <p class="body-content body-structure-index">
         Polimetrics is a web application that performs sentiment analysis on Tweets to generate opinion polls for 2020 presidential primary candidates.
         </p>
         <div class="tc">
-            <a class="header-font black link hover-red dib" href="{% url 'methodology' %}"><strong>Learn more</strong></a>
+            <a class="header-font black link hover-red dib mb5 projectmeth " id="projectindex" href="{% url 'methodology' %}"><strong>Learn more</strong></a>
         </div>
     </div>
-    <div>
+    <div class="mh5 ">
         <div class="body-headers accordion pa3"><strong>Reference guide</strong></div>
-        <div class="panel">
+        <div class="panel ">
             <div class="pa4">
               <strong>Sentiment</strong> - Is a rating of tweets referencing a specific<br> 
               candidate on a scale from 1 to -1, 1 being extremely positive,<br> 
@@ -26,31 +27,16 @@
               Note: The sentiment is primarily displayed as a monthly<br>
               average from all the tweets we have collected. 
             </div>
-
-            
         </div>
     </div>
 </div>
-<div>
-    <h3 class="body-headers mt4 pl4">Latest Poll</h3>
+<div class="projectmeth" id="projectindex">
+    <h3 class="body-headers mt4 pl4 ml5   ">Latest Poll</h3>
 </div>
-<div class="tc pl4">
-    {{ div | safe }}
+<div class="mw8 pr3 mobile-bokeh">
+  <div class="tc pl4 projectmeth" id="projectindex">
+      {{ div | safe }}
+  </div>
 </div>
-<script>
-  let acc = document.getElementsByClassName('accordion')
-  let i
-
-  for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener('click', function () {
-      this.classList.toggle('active')
-      let panel = this.nextElementSibling
-      if (panel.style.maxHeight) {
-        panel.style.maxHeight = null
-      } else {
-        panel.style.maxHeight = panel.scrollHeight + 'px'
-      }
-    })
-  }
-</script>
+</body>
 {% endblock %}

@@ -36,13 +36,14 @@
                 <li><a class="header-font  black link ml1 hover-red dib"
                         href="{% url 'methodology' %}"><strong>methodology</strong></a></li>
                 <li class="header-font ml1"></li>
-                <li><a class="header-font  black link ml1 mr4 hover-dark-blue dib"
+                <li><a class="header-font  black link ml1 mh4  mr4 hover-dark-blue dib"
                         href="{% url 'about' %}"><strong>about</strong></a></li>
             </div>
         </ul>
     </nav>
 </header>
-<div class="sidenav mt5">
+<body>
+<div class="sidenav projectsidenav mt5" id="projectsidenav">
     <div>
         {% for candidate in candidates %}
         {% if candidate.party == "republican" %}
@@ -56,18 +57,25 @@
     <div>
         {% for candidate in candidates %}
             {% if candidate.party == "democrat" %}
-            <div class="tooltip-hover" tooltip="{{ candidate }}"
-                tooltip-position="bottom">
-                <a href="{% url 'candidate_detail' slug=candidate.slug %}"><img class="candidates-image"
+                {% if candidate.first_name == 'beto' %}
+                    <div class="tooltip-hover" tooltip="Beto O'Rourke"
+                        tooltip-position="bottom">
+                        <a href="{% url 'candidate_detail' slug=candidate.slug %}"><img class="candidates-image"
+                                src="{{ candidate.image.url }}"></a>
+                    </div>
+                {% else %}
+                    <div class="tooltip-hover" tooltip="{{ candidate }}"
+                        tooltip-position="bottom">
+                        <a href="{% url 'candidate_detail' slug=candidate.slug %}"><img class="candidates-image"
                         src="{{ candidate.image.url }}"></a>
-            </div>
+                    </div>
+                {% endif %}
             {% endif %}
         {% endfor %}
     </div>
     <div class="pa4 mt5"></div>
 </div>
 <div class="main">
-
     <body>
         {% block content %}{% endblock %}
     </body>
@@ -75,7 +83,7 @@
 <footer>
     <div class="flex white">
         <div class="ml6 pl3" id="clockdiv">
-            <div class="clock-header"><strong>Countdown to Election Season</strong></div>
+            <div class="clock-header"><strong>Countdown to First Primary</strong></div>
             <div class="flex tc">
                 <div class="pa2">
                     <span class="days" id="day"></span>
@@ -99,17 +107,22 @@
             <div class="footer-candidates-container">
                 {% for candidate in candidates %}
                     {% if candidate.party == "republican" %}
-                        <a class="link footer-candidates mt2 mr3 hover-red" href="{% url 'candidate_detail' slug=candidate.slug %}">{{ candidate }}</a>
+                        <a class="link footer-candidates ml2 mr3 hover-red" href="{% url 'candidate_detail' slug=candidate.slug %}">{{ candidate }}</a>
                     {% endif %}
                 {% endfor %}
                 {% for candidate in candidates %}
                     {% if candidate.party == "democrat" %}
-                        <a class="link footer-candidates mt2 mr3 hover-dark-blue" href="{% url 'candidate_detail' slug=candidate.slug %}">{{ candidate }}</a>
+                        {% if candidate == 'Beto Orourke' %}
+                            <a class="link footer-candidates ml2 mr3 hover-dark-blue" href="{% url 'candidate_detail' slug=candidate.slug %}"><p>'Beto O'Rourke'</p></a>
+                        {% else %}
+                            <a class="link footer-candidates ml2 mr3 hover-dark-blue" href="{% url 'candidate_detail' slug=candidate.slug %}">{{ candidate }}</a>
+                        {% endif %}
                     {% endif %}
                 {% endfor %}
             </div>
         </div>
     </div>
 </footer>
+</body>
 
 </html>
