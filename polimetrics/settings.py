@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     # Third party apps
     'storages',
     'debug_toolbar',
-
+    'responsive',
     # Our apps
     'core',
 ]
@@ -59,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'responsive.middleware.ResponsiveMiddleware',
 ]
 
 ROOT_URLCONF = 'polimetrics.urls'
@@ -76,6 +77,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.core.context_processors.request',
+                'responsive.context_processors.device',
             ],
         },
     },

@@ -20,9 +20,12 @@ pandas = "*"
 gunicorn = "*"
 django-environ = "*"
 bokeh = "*"
+<<<<<<< HEAD
 django-responsive2 = "*"
+=======
 boto3 = "*"
 django-storages = "*"
+>>>>>>> 95a89a02559cc3aa6737ff27c47b0b8a2410f463
 
 [requires]
 python_version = "3.7"

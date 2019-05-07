@@ -71,9 +71,9 @@ def index(request):
     # index_bar_graph.legend.orientation = "vertical"
     # index_bar_graph.legend.location = "top_center"
     script, div = components(index_bar_graph)
+
     context = {'script': script, 'div': div, 'candidates': candidates, 'candidate_accordian_list': candidate_accordian_list}
     return render_to_response('index.html', context=context)
-
 
 def candidate_detail(request, slug):
     candidate = get_object_or_404(Candidate, slug=slug)
