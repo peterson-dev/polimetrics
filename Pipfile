@@ -21,6 +21,8 @@ gunicorn = "*"
 django-environ = "*"
 bokeh = "*"
 django-responsive2 = "*"
+boto3 = "*"
+django-storages = "*"
 
 [requires]
 python_version = "3.7"
