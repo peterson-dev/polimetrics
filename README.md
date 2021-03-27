@@ -13,7 +13,7 @@
   <h3 align="center">polimetrics.io</h3>
 
   <p align="center">
-    Personal/Project website hosted on Heroku.
+    ::: Website currently under maintenance :::
     <br />
     <a href="http://www.polimetrics.io/">View Demo</a>
     ·
